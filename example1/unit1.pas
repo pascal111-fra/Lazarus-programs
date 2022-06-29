@@ -20,11 +20,7 @@ type
     CheckBox5: TCheckBox;
     GroupBox1: TGroupBox;
     procedure Button1Click(Sender: TObject);
-    procedure CheckBox1Change(Sender: TObject);
-    procedure CheckBox2Change(Sender: TObject);
-    procedure CheckBox3Change(Sender: TObject);
-    procedure CheckBox4Change(Sender: TObject);
-    procedure CheckBox5Change(Sender: TObject);
+    procedure CheckBoxesChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
@@ -59,13 +55,16 @@ begin
 
 end;
 
-procedure TForm1.CheckBox1Change(Sender: TObject);
+procedure TForm1.CheckBoxesChange(Sender: TObject);
 begin
 
-  if (checkbox1.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
+  if sender is TCheckbox then
+   begin
+     if TCheckbox(sender).Checked then
+       inc(attrib_count)
+    else
+      dec(attrib_count);
+   end;
 
 end;
 
@@ -86,37 +85,6 @@ begin
   end;
 end;
 
-procedure TForm1.CheckBox2Change(Sender: TObject);
-begin
-  if (checkbox2.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox3Change(Sender: TObject);
-begin
-  if (checkbox3.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox4Change(Sender: TObject);
-begin
-  if (checkbox4.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox5Change(Sender: TObject);
-begin
-  if (checkbox5.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
 
 end.
 

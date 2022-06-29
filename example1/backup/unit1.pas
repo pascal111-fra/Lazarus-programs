@@ -21,10 +21,6 @@ type
     GroupBox1: TGroupBox;
     procedure Button1Click(Sender: TObject);
     procedure CheckBox1Change(Sender: TObject);
-    procedure CheckBox2Change(Sender: TObject);
-    procedure CheckBox3Change(Sender: TObject);
-    procedure CheckBox4Change(Sender: TObject);
-    procedure CheckBox5Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
@@ -62,10 +58,13 @@ end;
 procedure TForm1.CheckBox1Change(Sender: TObject);
 begin
 
-  if (checkbox1.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
+  if sender is TCheckbox then
+   begin
+     if TCheckbox(sender).Checked then
+       inc(attrib_count)
+    else
+      dec(attrib_count);
+   end;
 
 end;
 
@@ -73,40 +72,19 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
 
   if (attrib_count<3) then
-  showmessage(your_name+'! أنت شخصٌ مازال يتعلّمُ من الحياه');
+  showmessage(your_name+'! أنت شخصٌ مازال يتعلّمُ من الحياه')
+  else
+  begin
+  if (attrib_count=3) then
+  showmessage(your_name+'! أنت شخصٌ جيّد')
+  else
+  begin
+  if (attrib_count>3) then
+  showmessage(your_name+'! أنت شخصٌ رائع');
+  end;
+  end;
 end;
 
-procedure TForm1.CheckBox2Change(Sender: TObject);
-begin
-  if (checkbox2.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox3Change(Sender: TObject);
-begin
-  if (checkbox3.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox4Change(Sender: TObject);
-begin
-  if (checkbox4.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
-
-procedure TForm1.CheckBox5Change(Sender: TObject);
-begin
-  if (checkbox5.Checked) then
-  inc(attrib_count)
-  else
-  dec(attrib_count);
-end;
 
 end.
 
