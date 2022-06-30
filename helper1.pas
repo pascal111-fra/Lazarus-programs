@@ -16,6 +16,7 @@ uses
 
 procedure MessageBox2(title_string, msg_string:string; other_form:tform);
 
+
 implementation
 
 
@@ -106,8 +107,8 @@ begin
       caption:=title_string;
       if other_form <> nil then
       begin
-        top:=other_form.Top+(other_form.Width div 3);             // shouldn't be other_form.Height here?
-        left:=other_form.Left+(other_form.height div 2);          // and other_form.Width here?
+        top:=other_form.Top+(other_form.height div 2);
+        left:=other_form.Left+(other_form.Width div 2);
       end else
         Position := poMainFormCenter;
       ShowModal;
